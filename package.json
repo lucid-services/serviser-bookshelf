@@ -1,0 +1,48 @@
+{
+    "name": "bi-service-bookshelf",
+    "version": "0.1.0",
+    "description": "integrates bookshlef ORM with bi-service based projects",
+    "main": "index.js",
+    "scripts": {
+        "coverage": "export NODE_ENV=test; istanbul cover node_modules/mocha/bin/_mocha -- --recursive --ui tdd -R spec tests",
+        "test": "mocha --ui bdd --colors --check-leaks -t 5000 --reporter spec 'tests/**/*.js'"
+    },
+    "testFramework": "mocha",
+    "keywords": [
+        "bookshelf",
+        "orm",
+        "sql",
+        "bi-service",
+        "service"
+    ],
+    "author": "Bohemia Interactive",
+    "private": false,
+    "files": [
+        "CHANGELOG.md",
+        "README.md",
+        "index.js"
+    ],
+    "peerDependencies": {
+        "bi-service": "^1.0.0"
+    },
+    "dependencies": {
+        "bookshelf": "^0.13.3",
+        "bookshelf-eloquent": "^0.1.15",
+        "bookshelf-paranoia": "^0.11.0",
+        "knex": "^0.14.6",
+        "lodash": "^4.16.2",
+        "semver": "^5.1.0"
+    },
+    "devDependencies": {
+        "bi-service": "^1.3.0",
+        "chai": "^3.5.0",
+        "pg": "^4.5.0",
+        "pg-hstore": "2.3.*",
+        "chai-as-promised": "^5.3.0",
+        "istanbul": "^0.4.3",
+        "mocha": "^2.5.3",
+        "sinon-as-promised": "^4.0.0",
+        "sinon-chai": "^2.8.0",
+        "sinon": "^1.17.3"
+    }
+}
