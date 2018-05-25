@@ -1,4 +1,8 @@
 node_modules
 .tern-project
 logs
+*.vim
+.tern-project
+.gitlab-ci.yml
+logs/
 .idea
