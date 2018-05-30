@@ -17,6 +17,7 @@
     ],
     "author": "Bohemia Interactive",
     "private": false,
+    "license": "GPL-3.0",
     "files": [
         "CHANGELOG.md",
         "README.md",
