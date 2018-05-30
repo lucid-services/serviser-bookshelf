@@ -1,6 +1,6 @@
 {
     "name": "bi-service-bookshelf",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "integrates bookshlef ORM with bi-service based projects",
     "main": "index.js",
     "scripts": {

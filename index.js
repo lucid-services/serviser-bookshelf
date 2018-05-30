@@ -193,12 +193,12 @@ function loadModels(paths, options) {
         const pth = path.join(dir, file);
         const _model = module.require(pth)(bookshelf);
 
-        if (!_model.modelName) {
-            _model.modelName = _.capitalize(_.camelCase(_model.tableName));
+        if (!_model.prototype.modelName) {
+            _model.prototype.modelName = _.capitalize(_.camelCase(_model.prototype.tableName));
         }
 
-        const model = bookshelf.model(_model.modelName, _model);
-        dict[_model.modelName] = model;
+        const model = bookshelf.model(_model.prototype.modelName, _model);
+        dict[_model.prototype.modelName] = model;
     });
 
     return dict;

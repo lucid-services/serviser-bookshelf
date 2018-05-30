@@ -23,13 +23,15 @@ describe('loadModels', function() {
             dialect: 'postgres',
         });
 
-        this.model1 = {
-            tableName: 'table1',
-        };
+        function model1() {}
+        model1.prototype.tableName = 'table1';
 
-        this.model2 = {
-            tableName: 'table2',
-        };
+        function model2() {}
+        model2.prototype.tableName = 'table2';
+
+        self.model1 = model1;
+        self.model2 = model2;
+
         this.fileIteratorStub = sinon.stub(Service.moduleLoader, 'fileIterator', fileIterator);
         this.bookshelfModelSpy = sinon.spy(this.bookshelf, 'model');
 
@@ -111,6 +113,7 @@ describe('bookshelfBuilder', function() {
 
         bookshelf.knex.client.config.should.be.eql({
             pool: options.pool,
+            debug: false,
             connection: {
                 host: 'localhost',
                 database: 'test',
