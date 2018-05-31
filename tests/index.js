@@ -27,7 +27,7 @@ describe('loadModels', function() {
         model1.prototype.tableName = 'table1';
 
         function model2() {}
-        model2.prototype.tableName = 'table2';
+        model2.prototype.tableName = 'table_name2';
 
         self.model1 = model1;
         self.model2 = model2;
@@ -68,9 +68,9 @@ describe('loadModels', function() {
     it('should call bookshelf.import for each file ', function() {
         this.bookshelfModelSpy.should.have.been.calledTwice;
         this.bookshelfModelSpy.should.have.been.calledWith('Table1', this.model1);
-        this.bookshelfModelSpy.should.have.been.calledWith('Table2', this.model2);
+        this.bookshelfModelSpy.should.have.been.calledWith('TableName2', this.model2);
         this.output.should.have.property('Table1');
-        this.output.should.have.property('Table2');
+        this.output.should.have.property('TableName2');
     });
 });
 

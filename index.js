@@ -194,7 +194,7 @@ function loadModels(paths, options) {
         const _model = module.require(pth)(bookshelf);
 
         if (!_model.prototype.modelName) {
-            _model.prototype.modelName = _.capitalize(_.camelCase(_model.prototype.tableName));
+            _model.prototype.modelName = _.upperFirst(_.camelCase(_model.prototype.tableName));
         }
 
         const model = bookshelf.model(_model.prototype.modelName, _model);
