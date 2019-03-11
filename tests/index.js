@@ -1,6 +1,6 @@
 const path      = require('path');
 const m         = require('module');
-const Service   = require('bi-service');
+const Service   = require('serviser');
 const sinon     = require('sinon');
 const chai      = require('chai');
 const sinonChai = require("sinon-chai");

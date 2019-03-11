@@ -4,7 +4,7 @@ const Bookshelf  = require('bookshelf');
 const paranoia   = require('bookshelf-paranoia');
 const eloquent   = require('bookshelf-eloquent');
 const Knex       = require('knex');
-const Service    = require('bi-service');
+const Service    = require('serviser');
 const semver     = require('semver');
 
 module.exports = bookshelfBuilder;
@@ -145,7 +145,7 @@ function getDebugStrategy() {
  * @return {Promise<Boolean>}
  */
 function inspectIntegrity() {
-    const dialect = this.knex.client.dialect;
+    const dialect = this.client.dialect;
     let q = void 0;
 
     switch (dialect) {
@@ -161,9 +161,22 @@ function inspectIntegrity() {
             throw new Error('Integrity check - unsupported dialect');
     }
 
-    return this.knex.raw(q).bind(this).then(function (result) {
+    return this.client.raw(q).bind(this).then(function (result) {
         var requiredVer = this.minServerVersion;
-        var currentVer = result.rows[0]['server_version'];
+        var currentVer;
+
+        //we dont know the result collection structure as it can differ based
+        //on which nodejs database driver is used
+        //performance will not be an issue here
+        _.cloneDeepWith(result, function(v, k) {
+            if(k === 'server_version') {
+                currentVer = v;
+            }
+
+            if (currentVer) {//stop cloning
+                return null;
+            }
+        });
 
         if (   requiredVer
             && semver.valid(requiredVer)

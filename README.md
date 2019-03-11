@@ -2,11 +2,11 @@
 Bookshelf with `registry` & `virtuals` & `visibility` & `pagination` & `paranoia` & `eloquent` plugins.  
 
 ```javascript
-const Service = require('bi-service');
-const config = require('bi-config');
-const bookshelfBuilder = require('bi-service-bookshelf');
+const Service = require('serviser');
+const config = require('serviser-config');
+const bookshelfBuilder = require('serviser-bookshelf');
 
-const bookshelf = bookshelfBuilder({/*options*/});
+const bookshelf = bookshelfBuilder({/*knex options*/});
 
 const service = new Service(config);
 

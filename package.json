@@ -1,7 +1,7 @@
 {
-    "name": "bi-service-bookshelf",
+    "name": "serviser-bookshelf",
     "version": "0.3.0",
-    "description": "integrates bookshlef ORM with bi-service based projects",
+    "description": "integrates bookshlef ORM with serviser based projects",
     "main": "index.js",
     "scripts": {
         "coverage": "export NODE_ENV=test; istanbul cover node_modules/mocha/bin/_mocha -- --recursive --ui tdd -R spec tests",
@@ -12,10 +12,10 @@
         "bookshelf",
         "orm",
         "sql",
-        "bi-service",
+        "serviser",
         "service"
     ],
-    "author": "Bohemia Interactive",
+    "author": "fogine",
     "private": false,
     "license": "GPL-3.0",
     "files": [
@@ -24,18 +24,18 @@
         "index.js"
     ],
     "peerDependencies": {
-        "bi-service": "^1.0.0"
+        "serviser": "^2.0.0"
     },
     "dependencies": {
-        "bookshelf": "^0.13.3",
+        "bookshelf": "^0.14.2",
         "bookshelf-eloquent": "^0.1.15",
-        "bookshelf-paranoia": "^0.11.0",
-        "knex": "^0.14.6",
+        "bookshelf-paranoia": "^0.13.1",
+        "knex": "^0.16.3",
         "lodash": "^4.16.2",
         "semver": "^5.1.0"
     },
     "devDependencies": {
-        "bi-service": "^1.3.0",
+        "serviser": "^2.0.0",
         "chai": "^3.5.0",
         "pg": "^4.5.0",
         "pg-hstore": "2.3.*",
